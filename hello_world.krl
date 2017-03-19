@@ -19,7 +19,7 @@ A first ruleset for the Quickstart
       all_users = users();
       nameObj = id => all_users{[id, "name"]} |
                       {"first": "HAL", "last": "9000" };
-      first = nameObj{"first"}
+      first = nameObj{"first"};
       last = nameObj{"last"};
       first + " " + last
     }
