@@ -46,6 +46,13 @@ A first ruleset for the Quickstart
     always {
       ent:name := name
     }
+
+    rule clear_names {
+      select when hello clear
+      always {
+        ent:name := clear_name
+      }
+    }
   }
   
 }
