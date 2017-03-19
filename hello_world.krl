@@ -14,12 +14,16 @@ A first ruleset for the Quickstart
       msg = "Hello " + obj;
       msg
     }
+
+    clear_name = { "_0": { "name": { "first": "GlaDOS", "last": "" } } }
+
     __testing = { "queries": [ { "name": "hello", "args": [ "obj" ] },
                                { "name": "__testing" } ],
                   "events": [ { "domain": "echo", "type": "hello",
                                 "attrs": [ "name" ] },
-                                { "domain": "hello", "type": "name",
-                                "attrs": ["name"]} ]
+                              { "domain": "hello", "type": "name",
+                                "attrs": ["name"] },
+                              { "domain": "hello", "type": "clear" } ]
                 }
   }
   
