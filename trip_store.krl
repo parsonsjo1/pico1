@@ -12,6 +12,8 @@ ruleset trip_store {
   
   global {
 
+    clear_trip = { "mileage": "", "timestamp": ""}
+
     trips = function() {
       ent:trips
     }
@@ -59,8 +61,8 @@ ruleset trip_store {
   rule clear_trips {
     select when car trip_reset
     always {
-      ent:trips := "";
-      ent:long_trips := ""
+      ent:trips := clear_trip;
+      ent:long_trips := clear_trip;
     }
   }
   
