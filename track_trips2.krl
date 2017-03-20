@@ -24,6 +24,7 @@ ruleset track_trips2 {
     select when car new_trip
     pre {
       mileage = event:attr("mileage")
+      timestamp = time:now()
     }
     send_directive("trip") with
       trip_length = mileage
@@ -37,9 +38,11 @@ ruleset track_trips2 {
     select when explicit trip_processed
     pre {
       mileage = event:attr("mileage")
+      timestamp = event:attr("timestamp")
     }
     always {
-      raise explicit event "found_long_trip" if mileage.as("Number").klog("mileage is: ") > long_trip.klog("long trip is ")
+      raise explicit event "found_long_trip" 
+        attributes event:attrs() if mileage.as("Number").klog("mileage is: ") > long_trip.klog("long trip is ")
     }
 
   }
