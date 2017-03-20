@@ -39,7 +39,7 @@ ruleset track_trips2 {
     select when explicit trip_processed
     pre {
       mileage = event:attr("mileage")
-      timestamp = event:attr("timestamp")
+      timestamp = timestamp
     }
     always {
       raise explicit event "found_long_trip" 
