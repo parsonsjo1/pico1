@@ -24,12 +24,12 @@ ruleset track_trips2 {
     select when car new_trip
     pre {
       mileage = event:attr("mileage")
-      event:attr("timestamp") = time:now()
+      timestamp = time:now().klog("JDP TIME: ")
     }
     send_directive("trip") with
       trip_length = mileage
     always {
-      raise explicit event "trip_processed" 
+      raise explicit event "trip_processed" with
         attributes event:attrs().klog("JDP: attributes: ")
     }
   }
