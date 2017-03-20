@@ -10,6 +10,9 @@ ruleset track_trips2 {
   }
   
   global {
+
+    long_trip = 100
+
     __testing = { "queries": [{ "name": "__testing" } ],
                   "events": [ { "domain": "car", "type": "new_trip",
                                 "attrs": [ "mileage" ] } ]
@@ -28,6 +31,17 @@ ruleset track_trips2 {
       raise explicit event "trip_processed" 
         attributes event:attrs()
     }
+  }
+
+  rule find_long_trips {
+    select when explicit trip_processed
+    pre {
+      mileage = event:attr("mileage")
+    }
+    always {
+      raise explicit event "found_long_trip" if mileage.as("Number") > long_trip
+    }
+
   }
   
 }
