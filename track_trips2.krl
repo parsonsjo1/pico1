@@ -30,8 +30,8 @@ ruleset track_trips2 {
       trip_length = mileage
     always {
       raise explicit event "trip_processed" with
-        mileage = mileage
-        and timestamp = timestamp
+        mileage = mileage.klog("sending mileage: ")
+        timestamp = timestamp.klog("sending time: ")
     }
   }
 
