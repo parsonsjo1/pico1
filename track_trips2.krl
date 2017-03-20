@@ -30,7 +30,7 @@ ruleset track_trips2 {
       trip_length = mileage
     always {
       raise explicit event "trip_processed" 
-        attributes event:attrs()
+        attributes event:attrs().klog("JDP: attributes: ")
     }
   }
 

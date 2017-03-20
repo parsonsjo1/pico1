@@ -41,7 +41,7 @@ ruleset trip_store {
       timestamp = event:attr("timestamp")
     }
     always {
-      ent:trips.put({"mileage": mileage, "timestamp": timestamp})
+      ent:trips.put({"mileage": mileage, "timestamp": timestamp}).klog("JDP: TRIPS: ")
     }
   }
 
