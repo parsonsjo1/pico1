@@ -29,7 +29,7 @@ ruleset track_trips2 {
     send_directive("trip") with
       trip_length = mileage
     always {
-      raise explicit event "trip_processed" with
+      raise explicit event "trip_processed"
         attributes event:attrs().klog("JDP: attributes: ")
     }
   }
