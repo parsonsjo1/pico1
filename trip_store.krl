@@ -62,7 +62,7 @@ ruleset trip_store {
     select when car trip_reset
     always {
       ent:trips := clear_trip;
-      ent:long_trips := clear_trip;
+      ent:long_trips := clear_trip
     }
   }
   
