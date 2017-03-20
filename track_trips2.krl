@@ -24,7 +24,7 @@ ruleset track_trips2 {
     select when car new_trip
     pre {
       mileage = event:attr("mileage")
-      timestamp = time:now()
+      event:attr("timestamp") = time:now()
     }
     send_directive("trip") with
       trip_length = mileage
