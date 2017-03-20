@@ -43,7 +43,7 @@ ruleset trip_store {
       timestamp = event:attr("timestamp").klog("timestamp received ")
     }
     always {
-      ent:trips.append([{"mileage": mileage, "timestamp": timestamp}]).klog("JDP: TRIPS: ")
+      ent:trips := ent:trips.append([{"mileage": mileage, "timestamp": timestamp}]).klog("JDP: TRIPS: ")
     }
   }
 
@@ -54,7 +54,7 @@ ruleset trip_store {
       timestamp = event:attr("timestamp")
     }
     always {
-      ent:long_trips.append([{"mileage": mileage, "timestamp": timestamp}])
+      ent:long_trips := ent:long_trips.append([{"mileage": mileage, "timestamp": timestamp}])
     }
   }
 
