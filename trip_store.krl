@@ -37,8 +37,8 @@ ruleset trip_store {
   rule collect_trips {
     select when explicit trip_processed
     pre {
-      mileage = event:attr("mileage")
-      timestamp = event:attr("timestamp")
+      mileage = event:attr("mileage").klog("mileage received ")
+      timestamp = event:attr("timestamp").klog("timestamp received ")
     }
     always {
       ent:trips.put({"mileage": mileage, "timestamp": timestamp}).klog("JDP: TRIPS: ")
