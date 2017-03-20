@@ -39,7 +39,7 @@ ruleset track_trips2 {
       mileage = event:attr("mileage")
     }
     always {
-      raise explicit event "found_long_trip" if mileage.as("Number") > long_trip
+      raise explicit event "found_long_trip" if mileage.as("Number").klog("mileage is: ") > long_trip.klog("long trip is ")
     }
 
   }
