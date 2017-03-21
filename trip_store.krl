@@ -24,7 +24,7 @@ ruleset trip_store {
 
     short_trips = function() {
       //Return all trips in the trip entity that aren't in the long trip entity variable
-      "Needs to be implemented"
+      ent:trips.filter(function(x){x<100})
     }
 
     __testing = { "queries": [{ "name": "__testing" },
